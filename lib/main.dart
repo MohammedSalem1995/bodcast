@@ -4,27 +4,42 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(
     MaterialApp(
-      home: MyApp(),
+      home: HomePage(),
     ),
   );
 }
 
-class MyApp extends StatelessWidget {
+class HomePage extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
-      body: Center(
-        child: Container(
-          color: Colors.red,
-          height: 200,
-          width: 200,
-          child: Center(
-            child: Text(
-              "hight is ${MediaQuery.of(context).size.height}, width is ${MediaQuery.of(context).size.width}",
-              style: TextStyle(fontSize: 20),
-            ),
-          ),
+      backgroundColor: Colors.green,
+      appBar: AppBar(
+        title: const Text('DraggableScrollableSheet'),
+      ),
+      body: SizedBox.expand(
+        child: DraggableScrollableSheet(
+          maxChildSize: 1,
+          minChildSize: 0.3,
+
+          builder: (BuildContext context, ScrollController scrollController) {
+            return Container(
+              clipBehavior: Clip.antiAlias, //clip the child that over the cover
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
+            //  color: Colors.blue[100],
+              child: Container(
+                color: Colors.blue[100],
+                child: ListView.builder(
+                  controller: scrollController,
+                  itemCount: 25,
+                  itemBuilder: (BuildContext context, int index) {
+                    return ListTile(title: Text('Item $index'));
+                  },
+                ),
+              ),
+            );
+          },
         ),
       ),
     );
