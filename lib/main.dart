@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:todo_ui/ui/widget/evaluation_iteam.dart';
+
+import 'modules/evaluate_module.dart';
 
 void main() {
   runApp(
@@ -35,7 +38,7 @@ class HomePage extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                SizedBox(height: 70,),
+                SizedBox(height: 30,),
                 Text(
                   "Browse",
                   textAlign: TextAlign.center,
@@ -48,7 +51,7 @@ class HomePage extends StatelessWidget {
                   ),
 
                 ),
-                SizedBox(height: 10,),
+                SizedBox(height: 5,),
                 Text("find podcast that suit to your interest",
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -56,7 +59,7 @@ class HomePage extends StatelessWidget {
                     ),
 
                 ),
-                SizedBox(height: 15,),
+                SizedBox(height: 10,),
                 Container(
                   margin:EdgeInsets.only(right: 20,left: 20),
                   child: TextField(
@@ -64,6 +67,7 @@ class HomePage extends StatelessWidget {
                         contentPadding: EdgeInsets.only(
                             top: 5),
                         fillColor: Colors.transparent,
+                        filled: true,
                         hintText: ' type keyword',
                         hoverColor: Colors.white,
                         focusColor: Colors.white,
@@ -76,12 +80,10 @@ class HomePage extends StatelessWidget {
                 ),
                 SizedBox(height: 20,),
                 Row(
-                  // children: evaluate.map((e) {
-                  //   return EvaluationIteam(e);
-                  // }).toList(),
-                  children: [
-
-                  ],
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: evaluates.map((e) {
+                    return EvaluationIteam(e.evaluate_icon,e.evaluate_name);
+                  }).toList(),
                 ),
 
               ],
