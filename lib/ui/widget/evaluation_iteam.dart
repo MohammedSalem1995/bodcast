@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 class EvaluationIteam extends StatelessWidget{
   Icon evIcon;
   String evname;
-  EvaluationIteam(this.evIcon,this.evname);
+  Color c;
+  EvaluationIteam(this.evIcon,this.evname,this.c);
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -18,7 +19,7 @@ class EvaluationIteam extends StatelessWidget{
             radius:30,
           ),
           SizedBox(height: 10,),
-          Text(evname),
+          Text(evname , style: TextStyle(color: c),),
         ],
       ),
     );
