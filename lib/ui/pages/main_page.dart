@@ -8,7 +8,7 @@ import 'package:todo_ui/ui/pages/subject_page.dart';
 import 'package:todo_ui/ui/widget/evaluation_iteam.dart';
 import 'package:todo_ui/ui/widget/subject_iteam.dart';
 import 'package:todo_ui/ui/widget/writer_iteam.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
 
@@ -22,8 +22,8 @@ class MainPage extends StatelessWidget{
           child: Image.asset(
             "assets/images/background.jpg",
             fit: BoxFit.cover,),
-          width: 360,
-          height:592,
+          width: 360.w,
+          height:592.h,
         ),
         Scaffold(
           backgroundColor: Colors.transparent,
@@ -38,7 +38,7 @@ class MainPage extends StatelessWidget{
               Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  SizedBox(height: 30,),
+                  SizedBox(height: 30.h,),
                   Text(
                     "Browse",
                     textAlign: TextAlign.center,
@@ -46,12 +46,12 @@ class MainPage extends StatelessWidget{
                         color: Colors.white,
                         backgroundColor: Colors.transparent,
                         decorationColor: Colors.transparent,
-                        fontSize: 40,
+                        fontSize: 40.sp,
                         fontWeight: FontWeight.w900
                     ),
 
                   ),
-                  SizedBox(height: 5,),
+                  SizedBox(height: 5.h,),
                   Text("find podcast that suit to your interest",
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -59,9 +59,9 @@ class MainPage extends StatelessWidget{
                     ),
 
                   ),
-                  SizedBox(height: 10,),
+                  SizedBox(height: 10.h,),
                   Container(
-                    margin:EdgeInsets.only(right: 20,left: 20),
+                    margin:EdgeInsets.only(right: 20.w,left: 20.w),
                     child: TextField(
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.only(
@@ -72,13 +72,13 @@ class MainPage extends StatelessWidget{
                         hoverColor: Colors.white,
                         focusColor: Colors.white,
                         border: OutlineInputBorder(
-                          borderSide: BorderSide(width: 10, color: Colors.red),
+                          borderSide: BorderSide(width: 10.w, color: Colors.red),
                           borderRadius: BorderRadius.circular(40),
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(height: 20,),
+                  SizedBox(height: 20.h,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: evaluates.map((e) {
@@ -102,45 +102,45 @@ class MainPage extends StatelessWidget{
                             // clipBehavior: Clip.antiAlias, //clip the child that over the cover
                             decoration: BoxDecoration(
 
-                              borderRadius: BorderRadius.circular(40),
+                              borderRadius: BorderRadius.circular(40.r),
 
                               color: Colors.teal.shade200,
                             ),
-                            width:10,
-                            height: 10,
-                            margin:   EdgeInsets.only(right: 130,left: 130),
+                            width:10.w,
+                            height: 10.h,
+                            margin:   EdgeInsets.only(right: 130.w,left: 130.w),
                           ),
-                          SizedBox(height: 10,),
+                          SizedBox(height: 10.h,),
                           Container(
                             clipBehavior: Clip.antiAlias, //clip the child that over the cover
                             decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(topLeft: Radius.circular(40),topRight: Radius.circular(40)),),
+                    borderRadius: BorderRadius.only(topLeft: Radius.circular(40.r),topRight: Radius.circular(40.r)),),
                             child: Container(
                               color: Colors.white,
                               child: Container(
-                                margin: EdgeInsets.only(left: 20),
+                                margin: EdgeInsets.only(left: 20.w),
                                 child: Column(
                                   children: [
-                                    SizedBox(height: 30,),
+                                    SizedBox(height: 30.h,),
                                     Text("Handpicked",
                                       style: TextStyle(
-                                        fontSize: 20,
+                                        fontSize: 20.sp,
                                         fontWeight: FontWeight.bold,
                                         color: Colors.grey[800],
                                       ),
                                     ),
-                                    SizedBox(height: 20,),
+                                    SizedBox(height: 20.h,),
                                     Container(
                                       // clipBehavior: Clip.antiAlias, //clip the child that over the cover
                                       decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(40),
+                                        borderRadius: BorderRadius.circular(40.r),
                                         color: Colors.orangeAccent,
                                       ),
-                                      width:50,
-                                      height: 5,
+                                      width:50.w,
+                                      height: 5.h,
                                       //   margin:   EdgeInsets.only(right: 10,left: 130),
                                     ),
-                                    SizedBox(height: 20,),
+                                    SizedBox(height: 20.h,),
 
                                     Column(
                                       children: subjects.map((e) {
@@ -157,14 +157,14 @@ class MainPage extends StatelessWidget{
                                             child: SubjectItem(e));
                                       }).toList(),
                                     ),
-                                    SizedBox(height: 10,),
+                                    SizedBox(height: 10.h,),
                                     Align(
                                       child: Text(
                                         "Top Authors",
                                       ),
                                       alignment: Alignment.centerLeft,
                                     ),
-                                    SizedBox(height: 10,),
+                                    SizedBox(height: 10.h,),
                                     SingleChildScrollView(
                                       scrollDirection: Axis.horizontal,
                                       child: Row(

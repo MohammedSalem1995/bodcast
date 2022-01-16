@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:todo_ui/modules/evaluate_module.dart';
 import 'package:todo_ui/modules/subject_module.dart';
 import 'package:todo_ui/ui/widget/evaluation_iteam.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SubjectPage extends StatelessWidget{
   final Subject subject;
@@ -16,17 +17,17 @@ class SubjectPage extends StatelessWidget{
           Stack(
             children: [
               Container(
-                height: 200,width: 360,
+                height: 200.h,width: 360.w,
                 child: subject.image,
               ),
               Column(
                 children: [
-                  SizedBox(height: 20,),
+                  SizedBox(height: 20.h,),
                   IconButton(
                       onPressed: (){
                         Navigator.of(context).pop();
                       },
-                      icon: Icon(Icons.arrow_back_outlined,size: 30,color: Colors.white,
+                      icon: Icon(Icons.arrow_back_outlined,size: 30.r,color: Colors.white,
                       ),
                   ),
 
@@ -35,7 +36,7 @@ class SubjectPage extends StatelessWidget{
             ],
           ),
           Container(
-            margin: EdgeInsets.only(top: 20,left: 20,right: 20),
+            margin: EdgeInsets.only(top: 20.h,left: 20.w,right: 20.w),
             child:Column(
               children: [
                 Row(
@@ -43,29 +44,33 @@ class SubjectPage extends StatelessWidget{
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Expanded(child: Text(subject.title,style: TextStyle(fontSize: 40,fontWeight: FontWeight.bold),)),
-                    Icon(Icons.play_circle_fill,size: 50,color: Colors.orangeAccent,),
+                    Icon(Icons.play_circle_fill,size: 50.r,color: Colors.orangeAccent,),
 
                   ],
                 ),
-                SizedBox(height: 10,),
+                SizedBox(height: 10.h,),
                 Text(
                   subject.subtitle,
                   style: TextStyle(color: Colors.grey),
                 ),
-                SizedBox(height: 20,),
+                SizedBox(height: 20.h,),
                 Container(
                   child: Row(
                     children: [
-                      Container(
-                        clipBehavior: Clip.antiAlias,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(40),
-                        ),
-                        width:70,
-                        height: 70,
-                        child: subject.writer.image,
+                      CircleAvatar(
+                        radius: 70.r,
+                        backgroundImage: AssetImage(subject.writer.image) ,
                       ),
-                      SizedBox(width:20 ,),
+                      // Container(
+                      //   clipBehavior: Clip.antiAlias,
+                      //   decoration: BoxDecoration(
+                      //     borderRadius: BorderRadius.circular(40.r),
+                      //   ),
+                      //   width:70.w,
+                      //   height: 70.h,
+                      //   child: subject.writer.image,
+                      // ),
+                      SizedBox(width:20.w ,),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -76,7 +81,7 @@ class SubjectPage extends StatelessWidget{
                     ],
                   ),
                 ),
-                SizedBox(height: 20,),
+                SizedBox(height: 20.h,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: evaluates.map((e) {
